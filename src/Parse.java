@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 public class Parse {
 	
 	static String name;
@@ -73,6 +71,7 @@ public class Parse {
 		} 
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
+			System.out.println("NAME.CSV NOT FOUND");
 		}
 		
 		String line = "";
@@ -134,33 +133,49 @@ public class Parse {
 	
 	public static void writeAll(){
 		FileWriter writer = null;
+		FileWriter uwriter = null;
 		try {
 			String loc = ".\\" + name + "_features.csv";
 			writer = new FileWriter(loc,false);
+			uwriter = new FileWriter("universal.csv",true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		String line = "";
 		
+		/*
 		for(Row row : matrix){
 			line += row.gender + "," + row.age + "," + row.nof + "," + row.time + "," + row.sharec + "," + row.privacy + "," + row.type + "," + row.wordpower + "," + row.likes + "\n";
+		}
+		*/
+		for(int i=0;i<matrix.size();i++){
+			Row row = matrix.get(i);
+			String one = row.gender + "," + row.age + "," + row.nof + "," + row.time + "," + row.sharec + "," + row.privacy + "," + row.type + "," + row.wordpower + "," + row.likes + "\n";
+			line += one;
+			if(i<matrix.size()-2){
+				try {
+					uwriter.write(one);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		try {
 			writer.write(line);
 			writer.close();
+			uwriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void main(String[] args){
-		name = "Kush";
-		
+	public static void makeFeatures(String na){
+		name = na;
 		TFIDF.readAllMsgs(name);
-		
 		readAll();
 		writeAll();
 	}
+
 }

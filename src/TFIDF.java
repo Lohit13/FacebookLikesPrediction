@@ -9,12 +9,10 @@ public class TFIDF {
 	
 	static List<String> posts = new ArrayList<String>();
 	
-	static{
-		msgs = "";
-	}
-	
 	//Reads all the post content
 	public static void readAllMsgs(String name){
+		msgs = "";
+		posts.clear();
 		BufferedReader reader=null;
 
 		try {

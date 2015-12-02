@@ -34,7 +34,7 @@ public class Fetcher {
 		
 		FileWriter writer = null;
 		try {
-			writer = new FileWriter(".\\src\\" + user.getFirstName() + ".csv",false);
+			writer = new FileWriter(".\\" + user.getFirstName() + ".csv",false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -98,6 +98,6 @@ public class Fetcher {
 			e.printStackTrace();
 		}
 		
-		 return line;
+		 return user.getFirstName();
 	}
 }

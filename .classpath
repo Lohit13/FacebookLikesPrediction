@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/Lohitaksh/workspace/FacebookLikesPrediction/WebContent/WEB-INF/lib/restfb-1.17.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Lohitaksh/workspace/FacebookLikesPrediction/WebContent/WEB-INF/lib/commons-math3-3.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Lohitaksh/workspace/FacebookLikesPrediction/OpenForecast-0.5.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -57,10 +57,12 @@ public class Predict extends HttpServlet {
 		FacebookClient.AccessToken token = getFacebookUserToken(code, redirectUrl);
 		String accessToken = token.getAccessToken();
 		
-		 
-		String line = Fetcher.fetch(accessToken);
+		accessToken = "CAACEdEose0cBAKnUa3k0ls6jzCs0fY6FiUKz2M8AM9hQgJruLRQlA1V4ORHZCeLijQeGcdjubLr6JKDIBJnNsUk5oj9bpvEvjnLiMzwdzNwEWHhKUGOuDuNj5alCX0DYT5gAHsDi5iLzt4WgbKLOicX4HZC0SjpaRjv6T9W6pj4fNAPNR0u11U5GW7MjhCSBVhEpV3hgZDZD";
+		String name = Fetcher.fetch(accessToken);
 		
-		response.getWriter().write(line);
+		Parse.makeFeatures(name);
+		
+		response.getWriter().write(name);
 
 	}
 
